@@ -33,6 +33,7 @@ x_k=[0; 0];
 hold off;
 hat_P_k1_k1 = matrix_P;
 for iterator=1:length
+figure(2);
     w_k = normrnd(0,  sigma_a_sq);     
     v_k = normrnd(0,  sigma_z_sq);
     x_k = matrix_F * x_k + w_k;
@@ -49,6 +50,9 @@ for iterator=1:length
     %% Predict
     hat_x_k_k1 = matrix_F * hat_x_k1_k1; % + matrix_G * a_k;
     hat_P_k_k1 = matrix_F * hat_P_k1_k1 * matrix_F.' + matrix_Q;
+figure(3);
+    hold on;
+    plot(iterator, hat_x_k_k1, '.');
 
 
     %% Update
