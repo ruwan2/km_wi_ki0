@@ -31,7 +31,7 @@ noise_size=1;
 % v_k = normrnd(0,  matrix_R, [length, 1]);
 hat_P_k1_k1 = matrix_P;
 figure(1);
-x_k=0;
+x_k=[0; 0];
 hold off;
 for iterator=1:length
     w_k = normrnd(0,  sigma_a_sq);     
@@ -43,7 +43,7 @@ for iterator=1:length
     plot(iterator, x_k(1,1), '.');
     subplot(312);
     hold on;
-    plot(iterator, x_k(2,2), '.');
+    plot(iterator, x_k(2,1), '.');
     subplot(313);
     hold on;
     plot(iterator, w_k, '.');
