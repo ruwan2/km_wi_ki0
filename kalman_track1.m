@@ -38,12 +38,15 @@ for iterator=1:length
     v_k = normrnd(0,  sigma_z_sq);
     x_k = matrix_F * x_k + w_k;
     z_k = matrix_H * x_k + v_k;
-    subplot(211);
+    subplot(311);
     hold on;
-    plot(iterator, x_k(1,1), '*');
-    subplot(212);
+    plot(iterator, x_k(1,1), '.');
+    subplot(312);
     hold on;
-    plot(iterator, x_k(2,2), '*');
+    plot(iterator, x_k(2,2), '.');
+    subplot(313);
+    hold on;
+    plot(iterator, w_k, '.');
 end
 hat_x_k_k1
 
