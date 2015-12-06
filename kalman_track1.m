@@ -9,7 +9,7 @@ matrix_F=[1, delta_t; ...
 matrix_G=[delta_t^2/2; ...
           delta_t];
 sigma_a_sq = 1.21;      
-sigma_z_sq = 1.12;      
+sigma_z_sq = 6.12;      
 matrix_Q=[delta_t^4/4, delta_t^3/2; ...
           delta_t^3/2, delta_t^2]*sigma_a_sq;
 matrix_H=[1, 0];
@@ -61,6 +61,9 @@ figure(3);
     K_k    = hat_P_k_k1 * matrix_H.' / S_k;
     hat_x_k1_k1 = hat_x_k_k1 + K_k * tide_y;
     hat_P_k1_k1 = (eye(2) - K_k * matrix_H) * hat_P_k_k1;
+    subplot(313);
+    hold on;
+    plot(iterator, S_k, '.');
 end
 hat_x_k_k1
 
