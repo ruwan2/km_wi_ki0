@@ -1,4 +1,4 @@
-% https://en.wikipedia.org/wiki/Kalman_filter#Derivations
+% 
 % 
 % 
 clear;
@@ -17,7 +17,7 @@ sigma_z = 0.01;
 matrix_R = sigma_z;
 
 hat_x_k1_k1 = hat_x_00;
-a_k = 0.1;
+% a_k = 0.1;
 x_k = 0;
 
 hat_P_k1_k1 = matrix_P;
@@ -31,6 +31,8 @@ figure(4);
     hold on;
     plot(iterator, x_k(1,1), '.');
     subplot(312);
+    hold on;
+    plot(iterator, z_k, '.');
     subplot(313);
     hold on;
     plot(iterator, w_k, '.');
@@ -43,7 +45,7 @@ figure(5);
     plot(iterator, hat_x_k_k1, '.');
     subplot(312);
     hold on;
-    plot(iterator, x_k(1,1)-hat_x_k_k1(1,1), 'r.');
+    plot(iterator, z_k, '.');
 
 
     %% Update
@@ -52,6 +54,7 @@ figure(5);
     K_k    = hat_P_k_k1 * matrix_H.' / S_k;
     hat_x_k1_k1 = hat_x_k_k1 + K_k * tide_y;
     hat_P_k1_k1 = (1 - K_k * matrix_H) * hat_P_k_k1;
+    x_k = hat_x_k1_k1;
     subplot(313);
     hold on;
     plot(iterator, S_k, '.');
