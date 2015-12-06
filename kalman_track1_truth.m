@@ -22,7 +22,7 @@ matrix_R = sigma_z^2;
 
 n1 = normrnd(0,1);
 hat_x_k1_k1 = hat_x_00;
-a_k = 0.1;
+% a_k = 0.1;
 
 % noise_size=[length, 1];
 noise_size=1;
@@ -31,19 +31,22 @@ noise_size=1;
 % v_k = normrnd(0,  matrix_R, [length, 1]);
 hat_P_k1_k1 = matrix_P;
 figure(1);
-x_k=0;
+x_k=[0; 0];
 hold off;
 for iterator=1:length
-    w_k = normrnd(0,  matrix_Q);     
-    v_k = normrnd(0,  matrix_R);
+    w_k = normrnd(0,  sigma_a_sq);     
+    v_k = normrnd(0,  sigma_z_sq);
     x_k = matrix_F * x_k + w_k;
     z_k = matrix_H * x_k + v_k;
-    subplot(211);
+    subplot(311);
     hold on;
-    plot(iterator, x_k(1,1), '*');
-    subplot(212);
+    plot(iterator, x_k(1,1), '.');
+    subplot(312);
     hold on;
-    plot(iterator, x_k(2,2), '*');
+    plot(iterator, x_k(2,1), '.');
+    subplot(313);
+    hold on;
+    plot(iterator, w_k, '.');
 end
 hat_x_k_k1
 
