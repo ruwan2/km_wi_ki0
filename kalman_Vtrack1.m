@@ -6,7 +6,7 @@ clear;
 length = 50;
 matrix_F=1;
 sigma_a_sq = 1e-5;      
-sigma_z_sq = 0.1^2;      
+sigma_z_sq = 0.1;      
 matrix_Q=sigma_a_sq;
 matrix_H=1;      % [1, 0];
 
