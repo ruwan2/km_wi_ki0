@@ -1,5 +1,5 @@
-% 
-% 
+% https://www.jstatsoft.org/article/view/v030i06
+%http://stats.stackexchange.com/questions/27946/very-simple-particle-filters-algorithm-sequential-monte-carlo-method-implement
 % 
 clear;
 % delta_t=0.1;
